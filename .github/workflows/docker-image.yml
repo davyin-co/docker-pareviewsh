@@ -43,4 +43,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         file: './Dockerfile'
-        tags: 'davyinsa/pareviewsh
+        tags: 'davyinsa/pareviewsh' 

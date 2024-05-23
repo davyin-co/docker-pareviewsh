@@ -3,8 +3,10 @@ ENV TZ=Asia/Shanghai
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt update && \
+    apt upgrade && \
     apt install curl tar zip sudo apt-utils -y && \ 
-    apt install git php8.1-cli php8.1-mbstring php8.1-simplexml php8.1-curl php8.1-gd npm -y && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && \
+    apt install git php8.1-cli php8.1-mbstring php8.1-simplexml php8.1-curl php8.1-gd nodejs -y && \
     ##install composer
     php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && \
     php composer-setup.php && \
